@@ -35,6 +35,18 @@ bot.on('message', (msg) => {
   if (msg.text.toString().toLowerCase().includes(bye)) {
   bot.sendMessage(msg.chat.id, "Bye Sith");
   }
+
+  var phrase = 'may the force be with you'
+  if (msg.text.toString().toLowerCase().includes(phrase)) {
+    bot.kickChatMember(msg.chat.id,  msg.from.id);
+  }
+
+  var location = "sith location";
+    if (msg.text.indexOf(location) === 0) {
+        bot.sendMessage(msg.chat.id, "Unfortunately, there are no sith on Earth");
+        bot.sendMessage(msg.chat.id, "But u can visit");
+        bot.sendLocation(msg.chat.id, 44.97108, -104.27719);
+    }
 });
 
 bot.onText(/\/showforce/, (msg) => {
